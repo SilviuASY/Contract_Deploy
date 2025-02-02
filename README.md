@@ -17,7 +17,7 @@
 ## Installations
 - You can use either this command
  ```bash
-  [ -f "evm-contract.sh" ] && rm evm-contract.sh; wget -q https://raw.githubusercontent.com/ASY29/Contract_Deploy/main/evm-contract.sh && chmod +x evm-contract.sh && ./evm-contract.sh
+  [ -f "evm-contract.sh" ] && rm evm-contract.sh; wget -q https://raw.githubusercontent.com/SilviuASY/Contract_Deploy/main/evm-contract.sh && chmod +x evm-contract.sh && ./evm-contract.sh
 ```
 ## Troubleshooting
 - If you r facing issues like `wget command not found` then use this command to install wget and then run the above installation command that starts with wget
