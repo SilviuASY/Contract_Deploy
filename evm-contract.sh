@@ -52,8 +52,17 @@ input_required_details() {
         rm "$SCRIPT_DIR/token_deployment/.env"
     fi
 
-    read -s -p "Enter your Private Key: " PRIVATE_KEY
-    echo -e "****************************************************"
+    echo -n "Enter your Private Key: "
+    PRIVATE_KEY=""
+    while IFS= read -r -s -n1 char; do
+        if [[ $char == $'\n' || $char == $'\r' ]]; then
+            break
+        fi
+        echo -n "*"
+        PRIVATE_KEY+="$char"
+    done
+    echo -e "\nPrivate Key saved securely."
+
     read -p "Enter the token name (e.g., My Token): " TOKEN_NAME
     read -p "Enter the token symbol (e.g., MTK): " TOKEN_SYMBOL
     read -p "Enter the network rpc url: " RPC_URL
