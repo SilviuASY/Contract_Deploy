@@ -55,13 +55,17 @@ input_required_details() {
     echo -n "Enter your Private Key: "
 PRIVATE_KEY=""
 while IFS= read -r -s -n1 char; do
-    if [[ $char == $'\n' || $char == $'\r' ]]; then
+    if [[ -z $char ]]; then
+        break
+    fi
+    if [[ $char == $'\n' ]]; then
         break
     fi
     printf "*"
     PRIVATE_KEY+="$char"
 done
-echo  # Nouă linie după introducerea cheii
+echo  # Adaugă un newline după ce se termină inputul
+
 echo "Private Key saved securely."
 
     read -p "Enter the token name (e.g., My Token): " TOKEN_NAME
